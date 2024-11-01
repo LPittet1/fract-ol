@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c
+SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c
 
 LIBFT_PATH = libft
 
