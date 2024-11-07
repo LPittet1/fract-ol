@@ -6,25 +6,12 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:57:16 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/01 16:16:15 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/07 11:47:05 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	struct_init(t_data *data)
-{
-	data->mlx = NULL;
-	data->mlx_win = NULL;
-	data->img = NULL;
-	data->address = NULL;
-	data->imaginary = 0.0;
-	data->real = 0.0;
-	data->bits_per_pixel = 0;
-	data->line_len = 0;
-	data->endian = 0;
-	data->color = 0x00000000;
-}
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char *dst;
@@ -76,38 +63,53 @@ int	handle_key_press(int key, t_data *data)
 	return (0);
 }
 
-void	mlx_data_init(t_data *data, char *fractal)
+void	mlx_data_init(t_data *data, char **av)
 {
 	data->mlx = mlx_init();
-	data->mlx_win = mlx_new_window(data->mlx, 1000, 1000, fractal);
-	data->img = mlx_new_image(data->mlx, 1000, 1000);
+	data->mlx_win = mlx_new_window(data->mlx, WIDTH, HEIGTH, av[1]);
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGTH);
 	data->address = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_len, &data->endian);
+	data->color = 0x00000000;
+	data->min_x = -2.0;
+	data->max_x = 2.0;
+	data->max_y = 1.5;
+	data->min_y = -1.5;
+	data->julia_ci = 0.1;
+	data->julia_cr = 0.1;
+	data->name = av[1];
 }
 
 int	handle_mouse(int key, int x, int y, t_data *data)
 {
 	(void) x;
 	(void) y;
-	// if (key == 5)
-	// 	//zoom in
-	// if (key == 4)
-		//zoom out
+	if (key == 5)
+		zoom(data, 0.75);
+	if (key == 4)
+		zoom(data, 1.25);
 	print_key_num(key, data);
+	printf("new diff x = %f\n", data->max_x - data->min_x);
 	return (0);
+}
+void test(t_data *data)
+{
+	printf("width pixel len = %f\n", (data->max_x - data->min_x) / WIDTH);
+	printf("Heigth pixel len = %f\n", (data->max_y - data->min_y) / HEIGTH);
 }
 
 int main(int ac, char **av)
 {
 	t_data	data;
-
+	
 	if (ac < 2)
 		handle_error("wrong input", &data);
-	mlx_data_init(&data, av[1]);
-	fractal_manager(&data, av[1]);
+	mlx_data_init(&data, av);
+	render(&data);
 	mlx_put_image_to_window(data.mlx, data.mlx_win, data.img, 0, 0);
 	mlx_mouse_get_pos(data.mlx_win, &data.mouse_x, &data.mouse_y);
 	mlx_key_hook(data.mlx_win, &handle_key_press, &data);
 	mlx_mouse_hook(data.mlx_win, &handle_mouse, &data);
-	mlx_hook(data.mlx_win, 17, 0L, exit_prog, &data); 
+	mlx_hook(data.mlx_win, 17, 0L, exit_prog, &data);
 	mlx_loop(data.mlx);
+	return (0);
 }

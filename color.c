@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 09:58:25 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/05 11:50:05 by lpittet          ###   ########.fr       */
+/*   Created: 2024/11/07 10:15:13 by lpittet           #+#    #+#             */
+/*   Updated: 2024/11/07 11:42:13 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+# include"fractol.h"
 
-void	no_input(void)
+void get_color(t_data *data, int color)
 {
-	ft_putendl_fd("==========Wrong input==========", 1);
-	ft_putendl_fd("You can use ./fractol <fractal type>", 1);
-	exit (1);
-}
-
-void	handle_error(char *err, t_data *data)
-{
-	if (!ft_strncmp(err, "wrong input", ft_strlen(err)))
-	{
-		no_input();
-	}
-	else
-		exit_prog(data);
+	if (color < 10)
+		data->color = 0x00111130;
+	else if (color < 20)
+		data->color = 0X0000FF00;
+	else if (color < 30)
+		data->color = 0x000000FF;
+	else if (color < 40)
+		data->color = 0xFFFFFFFF;
+	else if (color == 40)
+		data->color = 0x000000000;
+	
 }
