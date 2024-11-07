@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 11:42:37 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/07 15:14:52 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 # define WIDTH 800
 # define HEIGTH 600
-# define MAX_ITER 40
+# define MAX_ITER 100
 
 typedef	struct	s_data	{
 	void	*mlx;

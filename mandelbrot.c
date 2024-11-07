@@ -6,15 +6,16 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:59:48 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 11:04:26 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/07 13:15:14 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
-
-// Mandeblrot equation = z_1 = z_0 + c, where all are complex nubmber, z_0 = 0, c = position of the plane
-// It distance between the point and the value obtained must not exceed n  = (tbd), for a certain amount of iterations
+// Mandeblrot equation = z_1 = z_0 + c, where all are complex nubmber
+//z_0 = 0, c = position of the plane
+//Distance between the point and the value obtained must not exceed n  = (tbd),
+// for a certain amount of iterations
 int	mandelbrot(t_data *data, double cr, double ci)
 {
 	int		i;
@@ -30,13 +31,11 @@ int	mandelbrot(t_data *data, double cr, double ci)
 	while (i < MAX_ITER)
 	{
 		if (pow(zi - ci, 2) + pow(zr - cr, 2) > 4)
-			break ;	
+			break ;
 		temp = zr * zr - zi * zi + cr;
 		zi = 2 * zr * zi + ci;
 		zr = temp;
 		i++;
 	}
-	
-	//draw_square(100, 100, 245, data);
 	return (i);
 }

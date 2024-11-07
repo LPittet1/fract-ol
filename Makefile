@@ -23,6 +23,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(LIBMLX)
 	$(CC) $(OBJS) $(LIBFT) $(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
+	@$(MAKE) clean
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_PATH)
