@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:08:05 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 13:12:58 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/08 14:00:57 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void	render(t_data *data)
 
 int	fractal_manager(t_data *data, double r, double i)
 {
-	if (!ft_strncmp(data->name, "mandelbrot", 10))
+	if (!ft_strncmp(data->name, "mandelbrot", 11))
 		return (mandelbrot(data, r, i));
-	else if (!ft_strncmp(data->name, "julia", 5))
+	else if (!ft_strncmp(data->name, "julia", 6))
 		return (julia(data, r, i));
 	else
 		handle_error("wrong input", data);
