@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
-SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c events.c color.c
+SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c events.c color.c utils.c
 
 LIBFT_PATH = libft
 
@@ -23,19 +23,17 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(LIBMLX)
 	$(CC) $(OBJS) $(LIBFT) $(LIBMLX) -framework OpenGL -framework AppKit -o $(NAME)
-	@$(MAKE) clean
+			
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_PATH)
-	@cp $(LIBFT) ./
 
 $(LIBMLX):
 	@$(MAKE) -C  $(MLX_PATH)
-	@cp $(LIBMLX) ./
 
 clean:
 	rm -f $(OBJS)
-	@$(MAKE) clean  -C $(LIBFT_PATH)
+	@$(MAKE) clean -C $(LIBFT_PATH)
 #@$(MAKE) clean  -C $(MLX_PATH)	
 
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:08:05 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/08 14:00:57 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/11 14:55:05 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	render(t_data *data)
 			real = data->min_x + x *((data->max_x - data->min_x) / WIDTH);
 			im = data->max_y - y * ((data->max_y - data->min_y) / HEIGTH);
 			color = fractal_manager(data, real, im);
-			get_color(data, color);
+			purple_scale(data, color);
 			my_mlx_pixel_put(data, x, y, data->color);
 			y++;
 		}

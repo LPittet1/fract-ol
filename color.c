@@ -6,26 +6,73 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:15:13 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 13:57:23 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/11 15:02:48 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	get_color(t_data *data, int color)
+void	gray_scale(t_data *data, int iter)
 {
-	if (color < 10)
-		data->color = 0x00111130;
-	else if (color < 20)
-		data->color = 0X0000FF00;
-	else if (color < 30)
-		data->color = 0x000000FF;
-	else if (color < 40)
-		data->color = 0x00FF0000;
-	else if (color < 50)
-		data->color = 0x00FFFF00;
-	else if (color < 60)
-		data->color = 0x0000FFFF;
-	else
+	int	i;
+
+	i = MAX_ITER;
+	data->color_scale = 3;
+	data->color = 0x00000000;
+	while (i > iter)
+	{
+		data->color += create_color(0, i, i, i);
+		i--;
+	}
+}
+
+void	purple_scale(t_data *data, int iter)
+{
+	int	i;
+	
+	i = MAX_ITER;
+	data->color_scale = 2;
+	if (i == iter)
 		data->color = 0x00000000;
+	else 
+		data->color = 0x0041077a;
+	while (i > iter)
+	{
+		data->color += create_color(0, i, 0, i);
+		i--;
+	}
+}
+
+void	green_scale(t_data *data, int iter)
+{
+	int	i;
+	
+	i = MAX_ITER;
+	data->color_scale = 2;
+	if (i == iter)
+		data->color = 0x00000000;
+	else 
+		data->color = 0x002a751c;
+	while (i > iter)
+	{
+		data->color += create_color(0, 0, i, i);
+		i--;
+	}
+}
+
+void	orange_scale(t_data *data, int iter)
+{
+	int	i;
+	
+	i = MAX_ITER;
+	data->color_scale = 2;
+	if (i == iter)
+		data->color = 0x00000000;
+	else 
+		data->color = 0x00eb8831;
+	while (i > iter)
+	{
+		data->color += create_color(0, 0, i, i);
+		i--;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:57:16 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 15:19:31 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/11 14:01:19 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	mlx_data_init(t_data *data, char **av)
 	data->julia_ci = 0.013;
 	data->julia_cr = 0.285;
 	data->name = av[1];
+	data->color_scale = 1;
 }
 
 int	handle_mouse(int key, int x, int y, t_data *data)
