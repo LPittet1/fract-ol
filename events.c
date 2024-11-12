@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:10:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/11 14:03:18 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:41:44 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,37 @@ void	zoom(t_data *data, double factor)
 
 void	change_color_scale(t_data *data)
 {
-	if (data->color_scale == 0)
-		data->color_scale = 1;
-	else if (data->color_scale == 1)
-		data->color_scale = 2;
-	else if (data->color_scale == 2)
-		data->color_scale = 3;
-	else if (data->color_scale == 3)
+	if (data->color_scale >= 0 && data->color_scale <= 2)
+		data->color_scale += 1;
+	else
 		data->color_scale = 0;
+	render(data);
+}
+
+void	move_fractal(int key, t_data *data)
+{
+	double displacement;
+
+	displacement = 20 * (data->max_x - data->min_x) / WIDTH;
+	if (key == 126)
+	{
+		data->min_y += displacement;
+		data->max_y += displacement;
+	}
+	else if (key == 125)
+	{
+		data->min_y -= displacement;
+		data->max_y -= displacement;
+	}
+	else if (key == 124)
+	{
+		data->min_x += displacement;
+		data->max_x += displacement;
+	}
+	else if (key == 123)
+	{
+		data->min_x -= displacement;
+		data->max_x -= displacement;
+	}
 	render(data);
 }

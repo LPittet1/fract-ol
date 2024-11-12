@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:58:25 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/07 13:11:36 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 14:09:49 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void	no_input(void)
 void	handle_error(char *err, t_data *data)
 {
 	if (!ft_strncmp(err, "wrong input", ft_strlen(err)))
-	{
 		no_input();
-	}
-	else
-		exit_prog(data);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 10:15:13 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/11 15:02:48 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:45:03 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	gray_scale(t_data *data, int iter)
 	int	i;
 
 	i = MAX_ITER;
-	data->color_scale = 3;
 	data->color = 0x00000000;
 	while (i > iter)
 	{
@@ -31,7 +30,6 @@ void	purple_scale(t_data *data, int iter)
 	int	i;
 	
 	i = MAX_ITER;
-	data->color_scale = 2;
 	if (i == iter)
 		data->color = 0x00000000;
 	else 
@@ -48,7 +46,6 @@ void	green_scale(t_data *data, int iter)
 	int	i;
 	
 	i = MAX_ITER;
-	data->color_scale = 2;
 	if (i == iter)
 		data->color = 0x00000000;
 	else 
@@ -65,7 +62,6 @@ void	orange_scale(t_data *data, int iter)
 	int	i;
 	
 	i = MAX_ITER;
-	data->color_scale = 2;
 	if (i == iter)
 		data->color = 0x00000000;
 	else 
@@ -75,4 +71,16 @@ void	orange_scale(t_data *data, int iter)
 		data->color += create_color(0, 0, i, i);
 		i--;
 	}
+}
+
+void	choose_color(t_data *data, int iter)
+{
+	if (data->color_scale == 0)
+		purple_scale(data, iter);
+	else if (data->color_scale == 1)
+		orange_scale(data, iter);
+	else if (data->color_scale == 2)
+		green_scale(data, iter);
+	else if (data->color_scale == 3)
+		gray_scale(data, iter);
 }

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:57:16 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/11 14:01:19 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 13:42:24 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->address + (y * data->line_len + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
-}
-
-int	draw_square(int x_start, int y_start, int size, t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		my_mlx_pixel_put(data, x_start + i, y_start, 0x0000FF00);
-		my_mlx_pixel_put(data, x_start, y_start + i, 0x00FFFF00);
-		my_mlx_pixel_put(data, x_start + i, y_start + size, 0x0000FFFF);
-		my_mlx_pixel_put(data, x_start + size, y_start + i, 0x00FF0000);
-		i++;
-	}
-	return (0);
 }
 
 int	print_key_num(int key, t_data *data)
@@ -55,11 +39,10 @@ int	handle_key_press(int key, t_data *data)
 {
 	if (key == 53)
 		exit_prog(data);
-	else if (key == 49)
-	{
-		mlx_mouse_get_pos(data->mlx_win, &data->mouse_x, &data->mouse_y);
-		printf("mouse x = %i and mouse y = %i\n", data->mouse_x, data->mouse_y);
-	}
+	else if (123 <= key && key <= 136)
+		move_fractal(key, data);
+	else if (key == 8)
+		change_color_scale(data);
 	else
 		print_key_num(key, data);
 	return (0);
@@ -80,7 +63,7 @@ void	mlx_data_init(t_data *data, char **av)
 	data->julia_ci = 0.013;
 	data->julia_cr = 0.285;
 	data->name = av[1];
-	data->color_scale = 1;
+	data->color_scale = 0;
 }
 
 int	handle_mouse(int key, int x, int y, t_data *data)
@@ -92,15 +75,9 @@ int	handle_mouse(int key, int x, int y, t_data *data)
 	if (key == 4)
 		zoom(data, 1.25);
 	print_key_num(key, data);
-	test(data);
 	return (0);
 }
 
-void	test(t_data *data)
-{
-	printf("width pixel len = %f\n", (data->max_x - data->min_x) / WIDTH);
-	printf("Heigth pixel len = %f\n", (data->max_y - data->min_y) / HEIGTH);
-}
 
 int	main(int ac, char **av)
 {
