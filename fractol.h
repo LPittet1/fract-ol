@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/11 14:31:23 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 09:33:56 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include "./mlx/mlx.h"
-# include "./libft/libft.h"
+# include "./libft/includes/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
