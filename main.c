@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:57:16 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 13:42:24 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 14:34:02 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->address + (y * data->line_len + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
-}
-
-int	print_key_num(int key, t_data *data)
-{
-	ft_putnbr_fd(key, 1);
-	ft_putchar_fd(' ', 1);
-	return (data->line_len);
 }
 
 int	exit_prog(t_data *data)
@@ -43,8 +36,8 @@ int	handle_key_press(int key, t_data *data)
 		move_fractal(key, data);
 	else if (key == 8)
 		change_color_scale(data);
-	else
-		print_key_num(key, data);
+	else if (key == 4)
+		display_help();
 	return (0);
 }
 
@@ -74,7 +67,6 @@ int	handle_mouse(int key, int x, int y, t_data *data)
 		zoom(data, 0.75);
 	if (key == 4)
 		zoom(data, 1.25);
-	print_key_num(key, data);
 	return (0);
 }
 
@@ -84,11 +76,10 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac < 2)
-		handle_error("wrong input", &data);
+		handle_error("wrong input");
 	mlx_data_init(&data, av);
 	render(&data);
-	mlx_put_image_to_window(data.mlx, data.mlx_win, data.img, 0, 0);
-	mlx_mouse_get_pos(data.mlx_win, &data.mouse_x, &data.mouse_y);
+	display_help();
 	mlx_key_hook(data.mlx_win, &handle_key_press, &data);
 	mlx_mouse_hook(data.mlx_win, &handle_mouse, &data);
 	mlx_hook(data.mlx_win, 17, 0L, exit_prog, &data);

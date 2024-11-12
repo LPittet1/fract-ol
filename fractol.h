@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 13:36:35 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 16:11:35 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
-# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGTH 600
@@ -47,14 +46,13 @@ typedef	struct	s_data	{
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		exit_prog(t_data *data);
-void	handle_error(char *err, t_data *data);
+void	handle_error(char *err);
 int		fractal_manager(t_data *data, double r, double i);
 
 int		mandelbrot(t_data *data, double cr, double ci);
 
 int		julia(t_data *data, double zr, double zi);
 
-int		print_key_num(int key, t_data *data);
 int 	exit_prog(t_data *data);
 int		handle_key_press(int key, t_data *data);
 void	mlx_data_init(t_data *data, char **av);
@@ -72,5 +70,7 @@ int		tricorn(t_data *data, double cr, double ci);
 void	move_fractal(int key, t_data *data);
 void	change_color_scale(t_data *data);
 void	choose_color(t_data *data, int iter);
+void	display_help();
+double	ft_atof(char *num);
 
 #endif

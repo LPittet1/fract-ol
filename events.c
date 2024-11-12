@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:10:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 13:41:44 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 14:33:09 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,13 @@ void	move_fractal(int key, t_data *data)
 		data->max_x -= displacement;
 	}
 	render(data);
+}
+
+void	display_help()
+{
+	ft_printf("\033[0;34mUse the mouse wheel to zoom in and out.\n\033[0;37m");
+	ft_printf("\033[0;34mPress \"c\" to change colors\n\033[0;37m");
+	ft_printf("\033[0;34mPress \"h\" to see this message again\n\033[0;37m");
+	ft_printf("\033[0;34mUse the arrow keys to move in the fractal\n\033[0;37m");
+	ft_printf("\033[0;34mPress \"ESC\" to close\n\033[0;37m");
 }

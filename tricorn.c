@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:05:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 10:30:35 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 15:37:59 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	tricorn(t_data *data, double cr, double ci)
 	temp = 0;
 	while (i < MAX_ITER)
 	{
-		if (pow(zi, 2) + pow(zr, 2) > 4)
+		if (zi * zi + zr * zr > 4)
 			break ;
 		temp = zr * zr - zi * zi + cr;
 		zi = -2 * zr * zi + ci;

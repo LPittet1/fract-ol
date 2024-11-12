@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:58:25 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 14:09:49 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 15:10:30 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	no_input(void)
 {
-	ft_putendl_fd("==========Wrong input==========", 1);
-	ft_putendl_fd("You can use ./fractol <fractal type>", 1);
+	ft_putendl_fd("\033[0;31m==========Wrong input==========", 1);
+	ft_putendl_fd("\033[0;31mYou can use ./fractol <fractal type>", 1);
+	ft_putendl_fd("\033[0;32mAvailable fractals : Julia, Mandelbrot, Tricorn", 1);
 	exit (1);
 }
 
-void	handle_error(char *err, t_data *data)
+void	handle_error(char *err)
 {
 	if (!ft_strncmp(err, "wrong input", ft_strlen(err)))
 		no_input();
-	
 }
