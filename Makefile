@@ -4,7 +4,7 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
 
-SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c events.c color.c utils.c
+SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c events.c color.c utils.c tricorn.c
 
 LIBFT_PATH = libft
 

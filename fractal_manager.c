@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:08:05 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/11 14:55:05 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 10:31:32 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	render(t_data *data)
 	double	im;
 	int		x;
 	int		y;
-	int		color;
+	int		iter;
 
 	x = 0;
 	while (x < WIDTH)
@@ -28,8 +28,8 @@ void	render(t_data *data)
 		{
 			real = data->min_x + x *((data->max_x - data->min_x) / WIDTH);
 			im = data->max_y - y * ((data->max_y - data->min_y) / HEIGTH);
-			color = fractal_manager(data, real, im);
-			purple_scale(data, color);
+			iter = fractal_manager(data, real, im);
+			purple_scale(data, iter);
 			my_mlx_pixel_put(data, x, y, data->color);
 			y++;
 		}
@@ -44,6 +44,8 @@ int	fractal_manager(t_data *data, double r, double i)
 		return (mandelbrot(data, r, i));
 	else if (!ft_strncmp(data->name, "julia", 6))
 		return (julia(data, r, i));
+	else if (!ft_strncmp(data->name, "tricorn", 7))
+		return (tricorn(data, r , i));
 	else
 		handle_error("wrong input", data);
 	return (0);

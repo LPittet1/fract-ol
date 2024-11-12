@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 09:33:56 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/12 10:31:20 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	green_scale(t_data *data, int iter);
 void	gray_scale(t_data *data, int iter);
 void	orange_scale(t_data *data, int iter);
 int		create_color(int t, int r, int g, int b);
+int		tricorn(t_data *data, double cr, double ci);
 
 #endif
