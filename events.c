@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:10:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 14:33:09 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:30:28 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,26 @@ void	move_fractal(int key, t_data *data)
 	render(data);
 }
 
-void	display_help()
+int	handle_mouse(int key, int x, int y, t_data *data)
 {
-	ft_printf("\033[0;34mUse the mouse wheel to zoom in and out.\n\033[0;37m");
-	ft_printf("\033[0;34mPress \"c\" to change colors\n\033[0;37m");
-	ft_printf("\033[0;34mPress \"h\" to see this message again\n\033[0;37m");
-	ft_printf("\033[0;34mUse the arrow keys to move in the fractal\n\033[0;37m");
-	ft_printf("\033[0;34mPress \"ESC\" to close\n\033[0;37m");
+	(void) x;
+	(void) y;
+	if (key == 5)
+		zoom(data, 0.8);
+	if (key == 4)
+		zoom(data, 1.25);
+	return (0);
+}
+
+int	handle_key_press(int key, t_data *data)
+{
+	if (key == 53)
+		exit_prog(data);
+	else if (123 <= key && key <= 136)
+		move_fractal(key, data);
+	else if (key == 8)
+		change_color_scale(data);
+	else if (key == 4)
+		display_help();
+	return (0);
 }

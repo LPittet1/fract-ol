@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:26:40 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 09:52:21 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:28:39 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	is_valid_digit(char *str)
 	dot = 0;
 	while (str[i])
 	{
-		if (i== 0 && (str[i] == '-' || str[i] == '+'))
+		if (i == 0 && (str[i] == '-' || str[i] == '+'))
 			i++;
 		if (!ft_isdigit(str[i]))
 		{
@@ -64,4 +64,12 @@ int	is_valid_digit(char *str)
 		i++;
 	}
 	return (1);
+}
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->address + (y * data->line_len + x * (data->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

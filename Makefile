@@ -2,9 +2,10 @@ NAME = fractol
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address -g3
+CFLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c events.c color.c utils.c tricorn.c
+SRCS = main.c handle_error.c fractal_manager.c julia.c mandelbrot.c\
+		 events.c color.c utils.c tricorn.c init_and_exit.c
 
 LIBFT_PATH = libft
 
