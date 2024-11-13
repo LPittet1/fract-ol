@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:41:38 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 11:42:05 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_data {
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		exit_prog(t_data *data);
-void	handle_error(char *err);
 int		fractal_manager(t_data *data, double r, double i);
 
 int		mandelbrot(double cr, double ci);
@@ -74,5 +73,6 @@ void	choose_color(t_data *data, int iter);
 void	display_help(void);
 double	ft_atof(char *num);
 int		is_valid_digit(char *str);
+int		wrong_input(void);
 
 #endif

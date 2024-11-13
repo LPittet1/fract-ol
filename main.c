@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:57:16 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:31:27 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 11:40:03 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	if (ac < 2 || ac > 4)
-		handle_error("wrong input");
+		wrong_input();
 	mlx_data_init(&data, av);
 	render(&data);
 	display_help();

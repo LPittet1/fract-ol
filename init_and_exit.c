@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:30:46 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:36:50 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 11:39:56 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	init_julia(t_data *data, char **av)
 		data->julia_ci = 0.013;
 	}
 	else if (!av[3])
-		handle_error("wrong input");
+		wrong_input();
 	if (av[2] && av[3])
 	{
 		if (!is_valid_digit(av[2]) || !is_valid_digit(av[3]))
-			handle_error("wrong input");
+			wrong_input();
 		if ((-2 < ft_atof(av[2]) && ft_atof(av[2]) < 2)
 			&& (-2 < ft_atof(av[3]) && ft_atof(av[3]) < 2))
 		{
@@ -38,7 +38,7 @@ void	init_julia(t_data *data, char **av)
 		data->julia_ci = ft_atof(av[3]);
 		}
 		else
-			handle_error("wrong input");
+			wrong_input();
 	}
 }
 

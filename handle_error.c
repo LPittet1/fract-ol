@@ -6,13 +6,13 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:58:25 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:36:19 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 11:38:55 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	no_input(void)
+int	wrong_input(void)
 {
 	ft_putendl_fd("\033[0;31m==========Wrong input==========", 2);
 	ft_putendl_fd("You can use ./fractol <fractal name>", 2);
@@ -29,10 +29,4 @@ void	display_help(void)
 	ft_printf("\033[0;34mPress \"h\" to see this message again\n\033[0;37m");
 	ft_printf("\033[0;34mUse the arrow keys to move in the fractal\n\033[0;37m");
 	ft_printf("\033[0;34mPress \"ESC\" to close\n\033[0;37m");
-}
-
-void	handle_error(char *err)
-{
-	if (!ft_strncmp(err, "wrong input", ft_strlen(err)))
-		no_input();
 }
