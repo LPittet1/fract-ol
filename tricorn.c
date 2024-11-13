@@ -6,20 +6,19 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:05:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:37:00 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:41:22 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	tricorn(t_data *data, double cr, double ci)
+int	tricorn(double cr, double ci)
 {
 	int		i;
 	double	zr;
 	double	zi;
 	double	temp;
 
-	(void) data;
 	i = 0;
 	zr = 0;
 	zi = 0;

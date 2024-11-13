@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:59:48 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 15:38:45 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:41:12 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 //z_0 = 0, c = position of the plane
 //Distance between the point and the value obtained must not exceed n  = (tbd),
 // for a certain amount of iterations
-int	mandelbrot(t_data *data, double cr, double ci)
+int	mandelbrot(double cr, double ci)
 {
 	int		i;
 	double	zr;
 	double	zi;
 	double	temp;
 
-	(void) data;
 	i = 0;
 	zr = 0;
 	zi = 0;

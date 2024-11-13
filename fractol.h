@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:40:14 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:41:38 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		exit_prog(t_data *data);
 void	handle_error(char *err);
 int		fractal_manager(t_data *data, double r, double i);
 
-int		mandelbrot(t_data *data, double cr, double ci);
+int		mandelbrot(double cr, double ci);
 
 int		julia(t_data *data, double zr, double zi);
 
@@ -67,7 +67,7 @@ void	green_scale(t_data *data, int iter);
 void	gray_scale(t_data *data, int iter);
 void	orange_scale(t_data *data, int iter);
 int		create_color(int t, int r, int g, int b);
-int		tricorn(t_data *data, double cr, double ci);
+int		tricorn(double cr, double ci);
 void	move_fractal(int key, t_data *data);
 void	change_color_scale(t_data *data);
 void	choose_color(t_data *data, int iter);
