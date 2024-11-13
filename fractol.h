@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 16:11:35 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 08:49:29 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
+# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGTH 600
@@ -72,5 +73,6 @@ void	change_color_scale(t_data *data);
 void	choose_color(t_data *data, int iter);
 void	display_help();
 double	ft_atof(char *num);
+int	is_valid_digit(char *str);
 
 #endif
