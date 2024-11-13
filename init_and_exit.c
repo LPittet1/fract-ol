@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:30:46 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 11:39:56 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 14:42:09 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,31 @@ int	exit_prog(t_data *data)
 
 void	init_julia(t_data *data, char **av)
 {
+	double	r;
+	double	i;
 	if (!av[2])
 	{
-		data->julia_cr = 0.285;
-		data->julia_ci = 0.013;
+		data->julia_cr = 0;
+		data->julia_ci = 0.8;
 	}
 	else if (!av[3])
 		wrong_input();
 	if (av[2] && av[3])
 	{
+		r = ft_atof(av[2]);
+		i = ft_atof(av[3]);
 		if (!is_valid_digit(av[2]) || !is_valid_digit(av[3]))
 			wrong_input();
-		if ((-2 < ft_atof(av[2]) && ft_atof(av[2]) < 2)
-			&& (-2 < ft_atof(av[3]) && ft_atof(av[3]) < 2))
+		if ((-2 <= r && r <= 2)
+			&& (-2 <= i && i <= 2))
 		{
-		data->julia_cr = ft_atof(av[2]);
-		data->julia_ci = ft_atof(av[3]);
+			data->julia_cr = r;
+			data->julia_ci = i;
 		}
 		else
 			wrong_input();
 	}
+	 
 }
 
 void	mlx_data_init(t_data *data, char **av)
@@ -57,5 +62,7 @@ void	mlx_data_init(t_data *data, char **av)
 	data->min_y = -1.5;
 	if (!ft_strncmp(data->name, "julia", 6))
 		init_julia(data, av);
+	if (ft_strncmp(data->name, "julia", 6) && av[2])
+		wrong_input();
 	data->color_scale = 0;
 }
