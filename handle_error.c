@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 09:58:25 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:29:15 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:36:19 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	no_input(void)
 	exit (1);
 }
 
-void	display_help()
+void	display_help(void)
 {
 	ft_printf("\033[0;34mUse the mouse wheel to zoom in and out.\n\033[0;37m");
 	ft_printf("\033[0;34mPress \"c\" to change colors\n\033[0;37m");

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:08:05 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/12 14:23:15 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:36:05 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	fractal_manager(t_data *data, double r, double i)
 	else if (!ft_strncmp(data->name, "julia", 6))
 		return (julia(data, r, i));
 	else if (!ft_strncmp(data->name, "tricorn", 7))
-		return (tricorn(data, r , i));
+		return (tricorn(data, r, i));
 	else
 		handle_error("wrong input");
 	return (0);

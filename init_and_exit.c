@@ -6,11 +6,11 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:30:46 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:31:21 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:36:50 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 int	exit_prog(t_data *data)
 {
@@ -18,7 +18,7 @@ int	exit_prog(t_data *data)
 	exit(0);
 }
 
-void	init_julia(t_data * data, char **av)
+void	init_julia(t_data *data, char **av)
 {
 	if (!av[2])
 	{
@@ -32,7 +32,7 @@ void	init_julia(t_data * data, char **av)
 		if (!is_valid_digit(av[2]) || !is_valid_digit(av[3]))
 			handle_error("wrong input");
 		if ((-2 < ft_atof(av[2]) && ft_atof(av[2]) < 2)
-			&&(-2 < ft_atof(av[3]) && ft_atof(av[3]) < 2))
+			&& (-2 < ft_atof(av[3]) && ft_atof(av[3]) < 2))
 		{
 		data->julia_cr = ft_atof(av[2]);
 		data->julia_ci = ft_atof(av[3]);

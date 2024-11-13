@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:26:40 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:28:39 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 10:38:17 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ double	ft_atof(char *num)
 	double	whole;
 	double	decimal;
 	int		len;
-	
+
 	whole = ft_atoi(num);
 	while (*num != '.')
 		num++;
@@ -38,13 +38,13 @@ double	ft_atof(char *num)
 
 int	create_color(int t, int r, int g, int b)
 {
-	return (t <<  24 | r << 16 | g << 8 | b);
+	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 int	is_valid_digit(char *str)
 {
-	int i;
-	int dot;
+	int	i;
+	int	dot;
 
 	i = 0;
 	dot = 0;
