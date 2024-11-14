@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:08:05 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 15:25:25 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/14 10:14:48 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	render(t_data *data)
 		y = 0;
 		while (y < HEIGTH)
 		{
-			real = data->min_x + (WIDTH - x) * ((data->max_x - data->min_x) / WIDTH);
+			real = data->min_x + x * ((data->max_x - data->min_x) / WIDTH);
 			im = data->max_y - y * ((data->max_y - data->min_y) / HEIGTH);
 			iter = fractal_manager(data, real, im);
 			choose_color(data, iter);

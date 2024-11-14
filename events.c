@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 14:10:36 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 10:35:48 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/13 15:39:16 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	zoom(t_data *data, double factor)
 	diff_x = (data->max_x - data->min_x) * factor;
 	diff_y = (data->max_y - data->min_y) * factor;
 	pixel_len = diff_x / WIDTH;
-	m_x = data->min_x + (data->mouse_x * (data->max_x - data->min_x) / WIDTH);
+	m_x = data->min_x + (data->mouse_x * ((data->max_x - data->min_x) / WIDTH));
 	m_y = data->max_y - (data->mouse_y * (data->max_y - data->min_y) / HEIGTH);
 	data->max_x = m_x + (WIDTH - data->mouse_x) * pixel_len;
 	data->min_x = data->max_x - diff_x;

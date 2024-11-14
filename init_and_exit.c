@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 10:30:46 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 14:42:09 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/14 11:45:23 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ void	init_julia(t_data *data, char **av)
 {
 	double	r;
 	double	i;
+
 	if (!av[2])
 	{
-		data->julia_cr = 0;
-		data->julia_ci = 0.8;
+		data->julia_cr = 0.285;
+		data->julia_ci = 0.01;
 	}
 	else if (!av[3])
 		wrong_input();
@@ -44,7 +45,6 @@ void	init_julia(t_data *data, char **av)
 		else
 			wrong_input();
 	}
-	 
 }
 
 void	mlx_data_init(t_data *data, char **av)

@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:26:40 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 14:41:18 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/14 10:01:52 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ double	ft_atof(char *num)
 	int		sign;
 
 	sign = 1;
+	decimal = 0;
 	if (num[0] == '-')
 		sign = -1;
 	whole = ft_atoi(num);
-	while (*num != '.')
+	while (*num && *num != '.')
 		num++;
 	if (*num == '.')
 		num++;

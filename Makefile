@@ -35,10 +35,12 @@ $(LIBMLX):
 clean:
 	rm -f $(OBJS)
 	@$(MAKE) clean -C $(LIBFT_PATH)
-#@$(MAKE) clean  -C $(MLX_PATH)	
+	@$(MAKE) clean  -C $(MLX_PATH)
 
 fclean: clean
 	rm -f $(NAME)
+	@$(MAKE) fclean -C $(LIBFT_PATH)
+	@@$(MAKE) clean  -C $(MLX_PATH)
 
 re: fclean all
 

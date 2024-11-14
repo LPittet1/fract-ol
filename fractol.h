@@ -6,7 +6,7 @@
 /*   By: lpittet <lpittet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:21:32 by lpittet           #+#    #+#             */
-/*   Updated: 2024/11/13 15:22:12 by lpittet          ###   ########.fr       */
+/*   Updated: 2024/11/14 11:46:13 by lpittet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,31 @@ void	choose_color(t_data *data, int iter);
 void	zoom(t_data *data, double factor);
 void	change_color_scale(t_data *data);
 void	move_fractal(int key, t_data *data);
-int	handle_mouse(int key, int x, int y, t_data *data);
-int	handle_key_press(int key, t_data *data);
+int		handle_mouse(int key, int x, int y, t_data *data);
+int		handle_key_press(int key, t_data *data);
 
 // fractal_manager.c
 void	render(t_data *data);
-int	fractal_manager(t_data *data, double r, double i);
+int		fractal_manager(t_data *data, double r, double i);
 
 // handle_error.c
-int	wrong_input(void);
+int		wrong_input(void);
 void	display_help(void);
 
 // init_and_exit.c
-int	exit_prog(t_data *data);
+int		exit_prog(t_data *data);
 void	init_julia(t_data *data, char **av);
 void	mlx_data_init(t_data *data, char **av);
 
 // fractal files julia.c mandelbrot.c tricorn.c
-int	julia(t_data *data, double zr, double zi);
-int	mandelbrot(double cr, double ci);
-int	tricorn(double cr, double ci);
+int		julia(t_data *data, double zr, double zi);
+int		mandelbrot(double cr, double ci);
+int		tricorn(double cr, double ci);
 
 // utils.c
 double	ft_atof(char *num);
-int	create_color(int t, int r, int g, int b);
-int	is_valid_digit(char *str);
+int		create_color(int t, int r, int g, int b);
+int		is_valid_digit(char *str);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif
